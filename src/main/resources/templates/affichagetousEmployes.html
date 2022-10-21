@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tous Employes</title>
+</head>
+<body>
+
+<p>Voici la liste de tous nos employés enregistrés: </p>
+<table border="1">
+  <th>ID</th>
+  <th>MATRICULE</th>
+  <th>NOM</th>
+  <th>PRENOM</th>
+  <th>TEL</th>
+  <th>MAIL</th>
+
+  <tr th:each="unEmploye : ${mesEmployes}">
+    <td th:text="${unEmploye.idemploye}"/>
+    <td th:text="${unEmploye.matricule}"/>
+    <td th:text="${unEmploye.nom}"/>
+    <td th:text="${unEmploye.prenom}"/>
+    <td th:text="${unEmploye.tel}"/>
+    <td th:text="${unEmploye.mail}"/>
+  </tr>
+</table>
+
+<p>Voulez-vous supprimer un employé? Selectionnez-le et cliquez sur SUPPRIMER</p>
+<p><form action = "delete" method="get">
+<select class="custom-select" name="idemploye">
+  <tr th:each="unEmploye : ${mesEmployes}">
+  <option th:value="${unEmploye.idemploye}" th:text="${unEmploye.idemploye} + ' '+${unEmploye.nom} + ' ' +${unEmploye.prenom}"> </option>
+</select>
+  </tr>
+  <input type="submit" name="SUPPRIMER" value="SUPPRIMER">
+</form>
+</p>
+
+
+<p>Mise à jour du matricule? Selectionnez l'employé et entrez son nouveau matricule</p>
+<p><form action = "update" method="get">
+  <select class="custom-select" name="idemploye">
+    <tr th:each="unEmploye : ${mesEmployes}">
+      <option th:value="${unEmploye.idemploye}" th:text="${unEmploye.idemploye} + ' '+${unEmploye.nom} + ' ' +${unEmploye.prenom}"> </option>
+  </select>
+  </tr>
+  Nouveau matricule: <input type = "text" name="matricule"> <br>
+  <input type="submit" name="METTRE A JOUR" value="METTRE A JOUR">
+</form>
+</p>
+<a href ="/">retour</a>
+</body>
+</html>

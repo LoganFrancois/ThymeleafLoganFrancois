@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infos Client</title>
+</head>
+<body>
+<p>Voici les informations concernant l'employé n°<b th:text="${monEmp.idemploye}"/> </p>
+<table border="1">
+
+  <th>NOM</th>
+  <th>PRENOM</th>
+  <th>MATRICULE</th>
+  <th>MAIL</th>
+  <th>TELEPHONE</th>
+  <tr>
+    <td th:text="${monEmp.nom}"/>
+    <td th:text="${monEmp.prenom}"/>
+    <td th:text="${monEmp.matricule}"/>
+    <td th:text="${monEmp.mail}"/>
+    <td th:text="${monEmp.tel}"/>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tous Employes</title>
+</head>
+<body>
+
+<p>Voici la liste de tous nos employés enregistrés: </p>
+<table border="1">
+    <th>ID</th>
+    <th>MATRICULE</th>
+    <th>NOM</th>
+    <th>PRENOM</th>
+    <th>TEL</th>
+    <th>MAIL</th>
+
+    <tr th:each="unEmploye : ${mesEmployes}">
+        <td th:text="${unEmploye.idemploye}"/>
+        <td th:text="${unEmploye.matricule}"/>
+        <td th:text="${unEmploye.nom}"/>
+        <td th:text="${unEmploye.prenom}"/>
+        <td th:text="${unEmploye.tel}"/>
+        <td th:text="${unEmploye.mail}"/>
+    </tr>
+</table>
+<p/>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tous Clients</title>
+</head>
+<body>
+<p>Voici le nouveau matricule de notre employé: <b th:text="${nouvemp.matricule}"/> </p>
+<table border="1">
+  <th>ID</th>
+  <th>MATRICULE</th>
+  <th>TEL</th>
+  <th>MAIL</th>
+  <tr>
+    <td th:text="${nouvemp.idemploye}"/>
+    <td th:text="${nouvemp.matricule}"/>
+    <td th:text="${nouvemp.tel}"/>
+    <td th:text="${nouvemp.mail}"/>
+  </tr>
+</table>
+<a href ="/">retour</a>
+</body>
+</html>

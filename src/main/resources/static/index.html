@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACCUEIL</title>
+</head>
+<body>
+<h1> bienvenue dans spring boot </h1>
+---------------------
+<p><a href="employes/tous">voir tous les employés</a></p>
+---------------------
+<p>Création d'un employé:</p>
+<p><form action = "employes/create" method="get">
+  matricule : <input type = "text" name="matricule"> <br>
+  nom : <input type = "text" name="nom"> <br>
+  prenom : <input type = "text" name="prenom"> <br>
+  tel : <input type = "text" name="tel"> <br>
+  mail : <input type = "text" name="mail"> <br>
+  <input type="submit" name="ok" value="ok">
+</form>
+</p>
+---------------------
+<p>Vous recherchez un employé? Indiquez son ID: </a></p>
+<p><form action = "employes/readId" method="get">
+  Identifiant : <input type = "text" name="idemploye">
+  <input type="submit" name="ok" value="ok">
+</form>
+</p>
+---------------------
+<p>Vous recherchez un ou plusieurs employé(s) via un nom? Entrez un nom: </a></p>
+<p><form action = "employes/readNom" method="get">
+  Nom : <input type = "text" name="nom">
+  <input type="submit" name="ok" value="ok">
+</form>
+</p>
+
+</body>
+</html>
