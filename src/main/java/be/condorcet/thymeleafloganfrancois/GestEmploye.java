@@ -3,6 +3,7 @@ package be.condorcet.thymeleafloganfrancois;
 import be.condorcet.thymeleafloganfrancois.entities.Employe;
 import be.condorcet.thymeleafloganfrancois.repositories.EmployeRepository;
 import be.condorcet.thymeleafloganfrancois.services.EmployeServiceImpl;
+import be.condorcet.thymeleafloganfrancois.services.InterfEmployeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,11 @@ import java.util.*;
 @RequestMapping("/employes")
 public class GestEmploye {
 
-    @Autowired
-    private EmployeServiceImpl employeServiceimpl;
+    //@Autowired
+   //private EmployeServiceImpl employeServiceimpl;
+
+   @Autowired
+    private InterfEmployeService employeServiceimpl;
     @RequestMapping("/tous")
     public String affTous(Map<String, Object> model) {
         System.out.println("recherche employes");

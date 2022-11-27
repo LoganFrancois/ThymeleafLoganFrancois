@@ -1,8 +1,11 @@
 package be.condorcet.thymeleafloganfrancois.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
+import java.util.List;
+
 @Data @NoArgsConstructor @AllArgsConstructor @RequiredArgsConstructor
 @ToString
 @Entity
@@ -21,7 +24,8 @@ public class Employe {
     private String tel;
     @NonNull
     private String mail;
-
-
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "responsable" , fetch = FetchType.LAZY) //-> pour éviter de supprimer un employé et un projet en même temps
+    @ToString.Exclude
+    private List <Projet> projets;
 }
