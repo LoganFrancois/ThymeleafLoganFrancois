@@ -26,7 +26,7 @@ public class Projet {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "IDRESPONSABLE")
-    private Employe responsable;
+    private Employe employe;
 
 
 

@@ -23,7 +23,14 @@ public class RestEmploye {
         Employe employe = employeServiceImpl.read(id);
         return new ResponseEntity<>(employe, HttpStatus.OK);
     }
-
+    //-------------------Retrouver les clients portant un nom donné--------------------------------------------------------
+    @RequestMapping(value = "/nom={nom}", method = RequestMethod.GET)
+    public ResponseEntity<List<Employe>> listEmployesNom(@PathVariable(value="nom") String nom) throws Exception{
+        System.out.println("recherche de "+nom);
+        List<Employe> employe;
+        employe = employeServiceImpl.read(nom);
+        return new ResponseEntity<>(employe, HttpStatus.OK);
+    }
     //-------------------Retrouver l'employé correspondant à un triplet--------------------------------------------------------
     @RequestMapping(value = "/{matricule}/{nom}/{prenom}", method = RequestMethod.GET)
     public ResponseEntity<Employe> getEmployeUnique(@PathVariable(value = "matricule") String matricule, @PathVariable(value = "nom") String nom,@PathVariable(value = "prenom") String prenom)  throws Exception{

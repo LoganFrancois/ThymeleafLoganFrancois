@@ -25,7 +25,7 @@ public class Employe {
     @NonNull
     private String mail;
     @JsonIgnore
-    @OneToMany(mappedBy = "responsable" , fetch = FetchType.LAZY) //-> pour éviter de supprimer un employé et un projet en même temps
+    @OneToMany(mappedBy = "employe" , fetch = FetchType.LAZY) //-> pour éviter de supprimer un employé et un projet en même temps
     @ToString.Exclude
     private List <Projet> projets;
 }

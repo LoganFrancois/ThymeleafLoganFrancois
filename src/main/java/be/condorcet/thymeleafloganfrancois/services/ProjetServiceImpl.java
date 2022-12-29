@@ -2,13 +2,13 @@ package be.condorcet.thymeleafloganfrancois.services;
 import be.condorcet.thymeleafloganfrancois.entities.Employe;
 import be.condorcet.thymeleafloganfrancois.entities.Projet;
 
-import java.awt.*;
 import java.util.List;
 import be.condorcet.thymeleafloganfrancois.repositories.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
-@Service
+//@Service
 @Transactional(rollbackOn = Exception.class)
 public class ProjetServiceImpl implements InterfProjetService{
 
@@ -37,6 +37,11 @@ public class ProjetServiceImpl implements InterfProjetService{
         return projetRepository.findAll();
     }
 
+  @Override
+    public List<Projet> getProjets(Employe emp) {
+        List<Projet> lp = projetRepository.findProjetByEmploye(emp);
+        return lp;
+    }
 }
 
 
