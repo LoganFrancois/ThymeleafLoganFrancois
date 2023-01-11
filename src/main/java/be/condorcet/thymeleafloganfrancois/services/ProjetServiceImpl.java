@@ -2,6 +2,7 @@ package be.condorcet.thymeleafloganfrancois.services;
 import be.condorcet.thymeleafloganfrancois.entities.Employe;
 import be.condorcet.thymeleafloganfrancois.entities.Projet;
 
+import java.math.BigDecimal;
 import java.util.List;
 import be.condorcet.thymeleafloganfrancois.repositories.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,20 @@ public class ProjetServiceImpl implements InterfProjetService{
         List<Projet> lp = projetRepository.findProjetByEmploye(emp);
         return lp;
     }
+
+
+    @Override
+    public List<Projet> getProjetsByNom(String nom) {
+        List<Projet> lp = projetRepository.findProjetByNomprojStartingWith(nom);
+        return lp;
+    }
+
+    @Override
+    public List<Projet>getProjetsByCout(BigDecimal cout){
+        List<Projet> lp = projetRepository.findProjetByCoutGreaterThanEqual(cout);
+        return lp;
+    }
 }
+
 
 

@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*",exposedHeaders = "*")
 @RestController
@@ -44,6 +45,20 @@ public class RestProjet {
         List<Projet> lp = projetServiceImpl.getProjets(emp);
         return new ResponseEntity<>(lp, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/nomproj={nom}/", method = RequestMethod.GET)
+    public ResponseEntity<List<Projet>> getProjetsByNom(@PathVariable(value = "nom") String nom)  throws Exception{
+        System.out.println("recherche des projets contenant le mot" + nom);
+        List<Projet> lp = projetServiceImpl.getProjetsByNom(nom);
+        return new ResponseEntity<>(lp, HttpStatus.OK);
+    }
+    @RequestMapping(value = "/cout={cout}", method = RequestMethod.GET)
+    public ResponseEntity<List<Projet>> getProjetsByCout(@PathVariable(value = "cout") BigDecimal cout)  throws Exception{
+        System.out.println("recherche des projets qui coutent + que  " + cout);
+        List<Projet> lp = projetServiceImpl.getProjetsByCout(cout);
+        return new ResponseEntity<>(lp, HttpStatus.OK);
+    }
+
 
     //-------------------Retrouver tous les projets --------------------------------------------------------
     @RequestMapping(value = "/all",method = RequestMethod.GET)
